@@ -72,6 +72,12 @@ android:layout_marginTop="300dp"
 android:layout_marginLeft="20dp"
 />
 </RelativeLayout>
+
+
+
+
+
+
 MainACtivity.java
 package com.example.radiobutton;
 import androidx.appcompat.app.AppCompatActivity;
@@ -163,6 +169,9 @@ radioGroup.clearCheck();
 });
 }
 }
+
+
+
 activity_yearwise.xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -226,6 +235,9 @@ android:layout_marginTop="16dp"
 android:onClick="Check"
 android:text="submit" />
 </LinearLayout>
+
+
+
 yearwiseActivity.java
 package com.example.radiobutton;
 import androidx.appcompat.app.AppCompatActivity;
@@ -248,7 +260,6 @@ ch3=(CheckBox)findViewById(R.id.checkBox4);
 ch.setOnCheckedChangeListener(new
 CompoundButton.OnCheckedChangeListener() {
 @Override
-School of CSE
 public void onCheckedChanged(CompoundButton compoundButton,
 boolean b) {
 ch1.setChecked(false);
