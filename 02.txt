@@ -1,0 +1,185 @@
+package com.example.program2_simple_calculator;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+public class MainActivity extends AppCompatActivity {
+    EditText e1,e2;
+    TextView tv;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        e1 =findViewById(R.id.editText1);
+        e2 =findViewById(R.id.editText2);
+        tv =findViewById(R.id.tv1);
+    }
+    public void add(View v){
+        int a1=Integer.parseInt(e1.getText().toString());
+        int a2= Integer.parseInt(e2.getText().toString());
+        int result=a1+a2;
+        tv.setText(result);
+    }
+    public void sub(View v){
+        int a1=Integer.parseInt(e1.getText().toString());
+        int a2= Integer.parseInt(e2.getText().toString());
+        int result=a1-a2;
+        tv.setText(result);
+    }
+    public void mul(View v){
+        int a1=Integer.parseInt(e1.getText().toString());
+        int a2= Integer.parseInt(e2.getText().toString());
+        int result=a1*a2;
+        tv.setText(result);
+    }
+    public void div(View v){
+        float a1=Integer.parseInt(e1.getText().toString());
+        float a2= Integer.parseInt(e2.getText().toString());
+        float result=a1/a2;
+        tv.setText((int) result);
+    }
+}
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:layout_width="209dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="101dp"
+        android:layout_marginRight="101dp"
+        android:layout_marginBottom="650dp"
+        android:gravity="center"
+        android:text="Calculator"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv1"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="91dp"
+        android:layout_marginBottom="112dp"
+        android:ems="10"
+        android:hint="Enter the Number 2"
+        android:gravity="right"
+        android:inputType="textPersonName"
+        android:pointerIcon="text"
+        android:text=""
+        android:textColorHighlight="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editText2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="89dp"
+        android:layout_marginRight="89dp"
+        android:layout_marginBottom="87dp"
+        android:ems="10"
+        android:gravity="right"
+        android:hint="Enter the Number 1"
+        android:pointerIcon="text"
+        android:inputType="textPersonName"
+        android:text=""
+        android:textColorHighlight="#FFFFFF" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignEnd="@+id/button2"
+        android:layout_alignBottom="@+id/button3"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="236dp"
+        android:layout_marginRight="236dp"
+        android:layout_marginBottom="112dp"
+        android:gravity="center"
+        android:onClick="add"
+        android:text="+"
+        android:textSize="45dp"
+        android:textStyle="bold"
+        app:backgroundTint="#000000" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="236dp"
+        android:layout_marginRight="236dp"
+        android:layout_marginBottom="58dp"
+        android:onClick="mul"
+        android:text="x"
+        android:textSize="50dp"
+        app:backgroundTint="#000000" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="93dp"
+        android:layout_marginRight="93dp"
+        android:layout_marginBottom="57dp"
+        android:onClick="div"
+        android:text='÷'
+        android:textAlignment="textEnd"
+        android:textSize="49dp"
+        app:backgroundTint="#000000" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignBottom="@+id/button4"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="94dp"
+        android:layout_marginRight="94dp"
+        android:layout_marginBottom="112dp"
+        android:gravity="center"
+        android:onClick="sub"
+        android:text="-"
+        android:textSize="50dp"
+        app:backgroundTint="#000000" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="230dp"
+        android:layout_height="62dp"
+        android:layout_above="@+id/button"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="91dp"
+        android:layout_marginRight="91dp"
+        android:layout_marginBottom="59dp"
+        android:gravity="right"
+        android:pointerIcon="text"
+        android:text="9"
+        android:textSize="36sp" />
+</RelativeLayout>
